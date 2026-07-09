@@ -1,0 +1,37 @@
+/* ============================================================
+   StreamFlix  ·  css/vibe.css
+   Vibe Match recommendation panel (mood + time chips).
+   ============================================================ */
+
+/* ---------- VIBE MATCH (USP) ---------- */
+.vibe{
+  margin:-30px 4vw 10px;position:relative;z-index:2;
+  background:linear-gradient(135deg,rgba(229,9,20,.12),rgba(84,51,255,.10)),var(--bg-raised);
+  border:1px solid rgba(255,255,255,.08);border-radius:12px;
+  padding:24px 26px;
+}
+.vibe-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.vibe-head h2{font-family:'Archivo',sans-serif;font-weight:900;font-stretch:75%;font-size:24px;text-transform:uppercase;letter-spacing:.5px}
+.vibe-privacy{
+  font-size:11.5px;color:var(--green);display:inline-flex;align-items:center;gap:6px;
+  border:1px solid rgba(70,211,105,.35);border-radius:999px;padding:3px 10px;
+}
+.vibe-sub{font-size:13.5px;color:var(--text-dim);margin-bottom:16px}
+.vibe-groups{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.vibe-group-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  padding:8px 16px;border-radius:999px;cursor:pointer;
+  font-size:13.5px;color:var(--text);background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);transition:all .15s;
+}
+.chip:hover{border-color:rgba(255,255,255,.4)}
+.chip.on{background:var(--red);border-color:var(--red);font-weight:600}
+.chip:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.vibe-empty{font-size:13.5px;color:var(--text-dim);padding:14px 0 2px}
+.vibe-count{font-size:12px;font-weight:500;color:var(--green)}
+.card .vibe-score{
+  position:absolute;top:8px;left:8px;z-index:2;
+  background:rgba(0,0,0,.7);border:1px solid rgba(70,211,105,.5);color:var(--green);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+}
