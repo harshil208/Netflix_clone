@@ -53,6 +53,49 @@ $("profileMenuList").innerHTML=PROFILES.map((p,i)=>i===activeProfile?"":`
 const u=currentUser();
 $("acctLine").textContent=u?`Signed in as ${u.email}`:"";
 }
+function closeAccountModal(){
+  $("accountModal").classList.remove("open");
+  $("accountModal").setAttribute("aria-hidden","true");
+}
+function openAccountModal(mode){
+  const u=currentUser();
+  const modal=$("accountModal");
+  const body=$("accountModalBody");
+  togglePanel("profilePanel");
+  if(mode==="help"){
+    body.innerHTML=`
+      <h3 class="account-modal-title">Help Centre</h3>
+      <p class="account-modal-sub">Quick answers for the demo experience and how your account works.</p>
+      <div class="help-list">
+        <div class="help-item"><strong>How do I switch profiles?</strong>Use the profile picker from the “Who’s watching?” screen or the profile menu.</div>
+        <div class="help-item"><strong>Where is my account saved?</strong>Demo accounts live only in this browser’s local storage.</div>
+        <div class="help-item"><strong>Can I change my password?</strong>This demo does not include password change flow yet.</div>
+      </div>
+      <div class="account-actions">
+        <button class="btn primary" onclick="window.location.href='mailto:support@streamflix.demo?subject=Streamflix%20help'">Contact support</button>
+        <button class="btn secondary" onclick="closeAccountModal()">Close</button>
+      </div>`;
+  } else {
+    const profile = activeProfile!=null?PROFILES[activeProfile]:null;
+    body.innerHTML=`
+      <h3 class="account-modal-title">Account</h3>
+      <p class="account-modal-sub">${u?"Manage the current demo account and profile from here.":"Sign in to manage your account and profile preferences."}</p>
+      <div class="account-kv">
+        <div class="row"><span class="label">Signed in as</span><strong>${u?u.email:"Not signed in"}</strong></div>
+        <div class="row"><span class="label">Display name</span><strong>${u?u.name:"—"}</strong></div>
+        <div class="row"><span class="label">Current profile</span><strong>${profile?profile.name:"—"}</strong></div>
+      </div>
+      <div class="account-actions">
+        ${u?`<button class="btn primary" onclick="closeAccountModal();showToast('Profile switching is available from the profile menu')">Switch profile</button>`:``}
+        ${u?`<button class="btn secondary" onclick="closeAccountModal();logOutAccount()">Sign out</button>`:`<button class="btn primary" onclick="closeAccountModal();showAuth('signin')">Sign in</button>`}
+      </div>`;
+  }
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+}
+
+$("accountModal").addEventListener("click",e=>{if(e.target===$("accountModal"))closeAccountModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("accountModal").classList.contains("open"))closeAccountModal();});
 function signOut(){
 stopHeroRotation();closeModal();
 activeProfile=null;

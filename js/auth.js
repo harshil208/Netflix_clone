@@ -7,26 +7,35 @@
 // tiny non-crypto hash — just so passwords aren't sitting in plaintext (NOT real security)
 function hashPw(s){let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))>>>0;return "h"+h.toString(16);}
 const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-function findUser(email){return _load().users.find(u=>u.email===email.trim().toLowerCase());}
-function currentUser(){const d=_load();return d.session?d.users.find(u=>u.email===d.session)||null:null;}
+function findUser(email){
+  const query=typeof email==="string"?email.trim().toLowerCase():"";
+  return query?getAuthState().users.find(u=>u.email===query)||null:null;
+}
+function currentUser(){
+  const email=getAuthSessionEmail();
+  return email?findUser(email):null;
+}
 function doSignUp(name,email,pass){
-name=name.trim();email=email.trim().toLowerCase();
-if(!name)return "Please enter your name.";
-if(!emailRe.test(email))return "Enter a valid email address.";
-if(pass.length<6)return "Password must be at least 6 characters.";
-const d=_load();
-if(d.users.some(u=>u.email===email))return "That email already has an account — try signing in.";
-d.users.push({name,email,pass:hashPw(pass),created:Date.now()});
-d.session=email;_save(d);return null;
+  name=name.trim();email=email.trim().toLowerCase();
+  if(!name)return "Please enter your name.";
+  if(!emailRe.test(email))return "Enter a valid email address.";
+  if(pass.length<6)return "Password must be at least 6 characters.";
+  const d=getAuthState();
+  if(d.users.some(u=>u.email===email))return "That email already has an account — try signing in.";
+  d.users.push({name,email,pass:hashPw(pass),created:Date.now()});
+  _save(d);
+  setAuthSession(email);
+  return null;
 }
 function doSignIn(email,pass){
-email=email.trim().toLowerCase();
-if(!emailRe.test(email))return "Enter a valid email address.";
-const u=_load().users.find(x=>x.email===email);
-if(!u||u.pass!==hashPw(pass))return "Wrong email or password.";
-const d=_load();d.session=email;_save(d);return null;
+  email=email.trim().toLowerCase();
+  if(!emailRe.test(email))return "Enter a valid email address.";
+  const u=getAuthState().users.find(x=>x.email===email);
+  if(!u||u.pass!==hashPw(pass))return "Wrong email or password.";
+  setAuthSession(email);
+  return null;
 }
-function doLogOut(){const d=_load();d.session=null;_save(d);}
+function doLogOut(){clearAuthSession();}
 
 /* ---- auth screens ---- */
 let authMode="signin";
