@@ -1,4 +1,13 @@
 # StreamFlix
+<p align="center">
+  <img src="assets/banner.png" width="100%">
+</p>
+
+<h1 align="center">🎬 StreamFlix</h1>
+
+<h3 align="center">
+AI-Powered Streaming Platform with Vibe Match
+</h3>
 
 A Netflix-style streaming interface built with **vanilla HTML, CSS and JavaScript** — no framework, no build step. Multiple profiles, a browsable catalog, a working detail modal, and a simulated fullscreen player that streams real Creative-Commons clips (with a canvas fallback when offline).
 
