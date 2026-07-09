@@ -1,0 +1,54 @@
+/* ============================================================
+   StreamFlix  ·  css/hero.css
+   Rotating hero billboard.
+   ============================================================ */
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;height:82vh;min-height:520px;
+  display:flex;align-items:center;padding:0 4vw;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-1;transition:background 1s ease;
+  background:
+    radial-gradient(ellipse 80% 70% at 75% 30%,rgba(229,9,20,.28),transparent 60%),
+    radial-gradient(ellipse 60% 60% at 20% 80%,rgba(30,60,180,.25),transparent 60%),
+    linear-gradient(160deg,#1a1023 0%,#0b0b0f 70%);
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:180px;
+  background:linear-gradient(to bottom,transparent,var(--bg));
+}
+.hero-content{max-width:600px;animation:rise .8s ease both}
+.hero-content.swap{animation:rise .6s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.hero-tag::before{content:"";width:22px;height:2px;background:var(--red)}
+.hero-title{
+  font-family:'Archivo',sans-serif;font-weight:900;font-stretch:75%;
+  font-size:clamp(44px,6.5vw,84px);line-height:.95;text-transform:uppercase;
+  letter-spacing:.5px;margin-bottom:18px;
+}
+.hero-meta{display:flex;gap:14px;font-size:13.5px;color:var(--text-dim);margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.hero-meta .match{color:var(--green);font-weight:600}
+.badge{border:1px solid #555;padding:0 6px;border-radius:3px;font-size:12px}
+.hero-desc{font-size:15.5px;line-height:1.55;color:#d4d4d4;margin-bottom:26px;max-width:520px}
+.hero-actions{display:flex;gap:12px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 26px;border:none;border-radius:4px;
+  font-size:15px;font-weight:600;cursor:pointer;
+  transition:transform .15s,background .2s;
+}
+.btn:active{transform:scale(.97)}
+.btn-play{background:var(--text);color:#000}
+.btn-play:hover{background:#d9d9d9}
+.btn-info{background:rgba(109,109,110,.45);color:var(--text);backdrop-filter:blur(4px)}
+.btn-info:hover{background:rgba(109,109,110,.65)}
+.hero-dots{position:absolute;bottom:14vh;right:4vw;display:flex;gap:7px}
+.hero-dots span{width:8px;height:8px;border-radius:50%;background:#444;cursor:pointer;transition:background .2s}
+.hero-dots span.on{background:var(--text)}
