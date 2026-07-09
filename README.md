@@ -1,173 +1,147 @@
-<p align="center">
-  <img src="assets/banner.png" alt="StreamFlix Banner" width="100%">
-</p>
+<div align="center">
 
-<h1 align="center">🎬 StreamFlix</h1>
+# 🎬 StreamFlix
 
-<p align="center">
-  <strong>AI-Powered Netflix-Inspired Streaming Platform</strong><br>
-  Discover content using <b>Vibe Match</b>, enjoy multi-profile support, authentication,
-  personalized recommendations, and a custom streaming player.
-</p>
+### AI-Powered Netflix-Inspired Streaming Platform
 
-<p align="center">
-  <a href="https://your-vercel-app.vercel.app">
-    <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit-red?style=for-the-badge">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge">
-  </a>
-  <img src="https://img.shields.io/badge/HTML5-orange?style=for-the-badge&logo=html5">
-  <img src="https://img.shields.io/badge/CSS3-blue?style=for-the-badge&logo=css3">
-  <img src="https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript">
-  <img src="https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel">
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=24&duration=3000&pause=1000&color=E50914&center=true&vCenter=true&width=700&lines=Netflix-Inspired+Streaming+Platform;AI-Powered+Vibe+Match;Built+with+HTML+CSS+%26+JavaScript;Responsive+%7C+Fast+%7C+Modern+UI" />
+
+<br>
+
+<a href="https://your-vercel-app.vercel.app">
+<img src="https://img.shields.io/badge/🚀_Live_Demo-Visit-red?style=for-the-badge">
+</a>
+
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge">
+
+<img src="https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge">
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=html,css,js,git,github,vscode,vercel" />
+
+</div>
 
 ---
 
 # ✨ Overview
 
-**StreamFlix** is a Netflix-inspired streaming platform built entirely using **HTML, CSS, and Vanilla JavaScript**.
+StreamFlix is a **Netflix-inspired streaming platform** built completely using **Vanilla HTML, CSS and JavaScript**.
 
-Unlike a traditional streaming clone, StreamFlix introduces **Vibe Match**, an AI-inspired recommendation experience that instantly re-ranks the catalog according to the user's **current mood** and **available viewing time**, while keeping all recommendation logic inside the browser.
+Unlike traditional streaming clones, StreamFlix introduces **Vibe Match**, a recommendation system that intelligently ranks content according to the user's:
 
-No frameworks.
+- 🎭 Mood
+- ⏱ Available Time
+- ❤️ Preferences
+
+Everything runs **entirely inside the browser**.
+
 No backend.
-No build tools.
 
-Everything runs directly in the browser.
+No framework.
+
+No build tools.
 
 ---
 
 # 🚀 Live Demo
 
-> 🌐 https://your-vercel-app.vercel.app
-
----
-
-# 📸 Preview
-
-## Home
-
-<p align="center">
-<img src="assets/home.png" width="90%">
-</p>
-
-## Vibe Match
-
-<p align="center">
-<img src="assets/vibe-match.png" width="90%">
-</p>
-
-## Player
-
-<p align="center">
-<img src="assets/player.png" width="90%">
-</p>
+> https://your-vercel-app.vercel.app
 
 ---
 
 # ⭐ Features
 
-### 🎯 AI Vibe Match
-
-- Mood-based recommendations
-- Time-aware suggestions
-- Client-side recommendation engine
-- Zero tracking
-
----
-
-### 👤 Multi Profile Support
-
-- Multiple users
-- Kids profile
-- Individual watch history
-- Separate My List
+| Feature | Description |
+|----------|-------------|
+| 🎭 Vibe Match | AI-inspired mood-based recommendations |
+| 👤 Multi Profiles | Individual profiles with Kids Mode |
+| ❤️ My List | Save favourite titles |
+| ▶ Continue Watching | Resume playback instantly |
+| 🔎 Smart Search | Search by title, cast and genre |
+| 🎥 Custom Player | Skip Intro, Captions, Speed Control |
+| 🔐 Authentication | Sign Up & Login |
+| 📱 Responsive Design | Desktop, Tablet & Mobile |
 
 ---
 
-### 🎥 Streaming Player
+# 🎯 Vibe Match
 
-- Play / Pause
-- Skip Intro
-- Playback Speed
-- Captions
-- Continue Watching
-- Resume Playback
-- Fullscreen Mode
+Unlike traditional recommendation systems,
 
----
+**Vibe Match** asks:
 
-### 🔍 Search
+> **"How are you feeling today?"**
 
-- Instant filtering
-- Search by title
-- Search by cast
-- Search by genre
+Choose from
 
----
+☕
 
-### ❤️ Personalization
+Cozy
 
-- My List
-- Like / Dislike
-- Continue Watching
-- Personalized recommendations
+😂
 
----
+Funny
 
-### 🔐 Authentication
+⚡
 
-- Sign Up
-- Login
-- Session persistence
-- Local Storage support
+Adrenaline
 
----
+🧠
 
-# 💡 What Makes StreamFlix Different?
+Mind Bending
 
-Unlike most Netflix clones, StreamFlix introduces a unique recommendation experience.
+💛
 
-### 🔥 Vibe Match
+Heartfelt
 
-Instead of recommending titles based only on watch history,
+🌤
 
-StreamFlix asks:
+Feel Good
 
-> **"How do you feel today?"**
+Then select
 
-Choose
+- Under 45 minutes
 
-- ☕ Cozy
-- 😂 Funny
-- ⚡ Action
-- 💛 Heartfelt
-- 🧠 Mind-bending
-
-Then choose
-
-- Under 45 min
 - 1–2 hours
+
 - Binge Mode
 
-The application instantly re-ranks every title **inside your browser** without sending any viewing data anywhere.
+The catalog instantly rearranges itself without sending any data to external servers.
 
 ---
 
-# 🛠 Tech Stack
+# 🏗 Architecture
 
-| Technology | Usage |
-|------------|-------|
-| HTML5 | Structure |
-| CSS3 | Styling |
-| JavaScript (ES6+) | Application Logic |
-| Local Storage | Authentication & Session |
-| Google Fonts | Typography |
-| Picsum Photos | Artwork |
-| Blender Open Movies | Demo Videos |
-| Vercel | Deployment |
+```text
+          User
+            │
+            ▼
+   Authentication
+            │
+            ▼
+   Profile Selection
+            │
+            ▼
+        Home Screen
+      ┌─────┴─────┐
+      ▼           ▼
+   Search     Vibe Match
+      │           │
+      └─────┬─────┘
+            ▼
+      Recommendations
+            │
+            ▼
+        Video Player
+            │
+            ▼
+ Continue Watching
+```
 
 ---
 
@@ -175,43 +149,136 @@ The application instantly re-ranks every title **inside your browser** without s
 
 ```text
 streamflix/
+
 │
+
 ├── index.html
+
 │
+
 ├── css/
-│   ├── variables.css
-│   ├── reset.css
-│   ├── navbar.css
-│   ├── hero.css
-│   ├── cards.css
-│   ├── modal.css
-│   ├── auth.css
-│   ├── player.css
-│   ├── vibe.css
-│   ├── footer.css
-│   └── responsive.css
+
+│ ├── variables.css
+
+│ ├── reset.css
+
+│ ├── navbar.css
+
+│ ├── hero.css
+
+│ ├── cards.css
+
+│ ├── modal.css
+
+│ ├── auth.css
+
+│ ├── player.css
+
+│ ├── vibe.css
+
+│ ├── footer.css
+
+│ └── responsive.css
+
 │
+
 ├── js/
-│   ├── utils.js
-│   ├── storage.js
-│   ├── profile.js
-│   ├── data.js
-│   ├── cards.js
-│   ├── modal.js
-│   ├── player.js
-│   ├── auth.js
-│   ├── recommendations.js
-│   ├── notifications.js
-│   ├── search.js
-│   ├── continueWatching.js
-│   ├── navbar.js
-│   ├── myList.js
-│   └── app.js
+
+│ ├── app.js
+
+│ ├── auth.js
+
+│ ├── cards.js
+
+│ ├── continueWatching.js
+
+│ ├── data.js
+
+│ ├── modal.js
+
+│ ├── myList.js
+
+│ ├── navbar.js
+
+│ ├── notifications.js
+
+│ ├── player.js
+
+│ ├── profile.js
+
+│ ├── recommendations.js
+
+│ ├── search.js
+
+│ ├── storage.js
+
+│ └── utils.js
+
 │
+
 ├── README.md
+
 ├── LICENSE
+
 └── .gitignore
 ```
+
+---
+
+# 🛠 Tech Stack
+
+<div align="center">
+
+| Technology | Usage |
+|------------|-------|
+| HTML5 | Structure |
+| CSS3 | Styling |
+| JavaScript ES6 | Application Logic |
+| Local Storage | Authentication |
+| Google Fonts | Typography |
+| Vercel | Deployment |
+
+</div>
+
+---
+
+# 📊 Project Highlights
+
+```text
+⭐ 30+ Meaningful Git Commits
+
+⭐ 20+ Modular Files
+
+⭐ Responsive UI
+
+⭐ AI-Inspired Recommendation Engine
+
+⭐ Custom Streaming Player
+
+⭐ Multi Profile Support
+
+⭐ Continue Watching
+
+⭐ Authentication
+
+⭐ Vibe Match
+
+⭐ MIT Licensed
+```
+
+---
+
+# ⚡ Performance
+
+✅ No Framework
+
+✅ Lightweight
+
+✅ Fast Loading
+
+✅ Modular Architecture
+
+✅ Clean Code
 
 ---
 
@@ -229,7 +296,7 @@ Go inside
 cd Netflix_clone
 ```
 
-Run a local server
+Run
 
 ```bash
 python3 -m http.server 8000
@@ -249,69 +316,52 @@ http://localhost:8000
 
 ---
 
-# 🏗 Architecture
+# 🗺 Roadmap
 
-```text
-User
- │
- ▼
-Authentication
- │
- ▼
-Profile Selection
- │
- ▼
-Home
- │
- ├──────────────┐
- ▼              ▼
-Search      Vibe Match
- │              │
- ▼              ▼
-Catalog    Recommendation Engine
- │
- ▼
-Player
- │
- ▼
-Continue Watching
-```
+- [x] Authentication
+- [x] Multi Profiles
+- [x] Continue Watching
+- [x] My List
+- [x] Search
+- [x] Custom Video Player
+- [x] Vibe Match
+- [ ] Backend Integration
+- [ ] Watch Party
+- [ ] AI Chat Assistant
+- [ ] Voice Search
+- [ ] Offline Downloads
 
 ---
 
-# 📈 Future Improvements
+<details>
 
-- AI-powered natural language search
-- Watch Party
-- Voice Search
-- Smart Subtitle Translation
-- Offline Downloads
-- Dark/Light Themes
-- Movie Reviews
-- Trending Analytics
-- Backend Integration
-- Firebase Authentication
+<summary>📜 Notes</summary>
 
----
+- Playback uses Creative Commons videos.
 
-# 📜 Notes
-
-- Playback uses Creative Commons demo videos.
 - Artwork is placeholder content.
-- Authentication is for demonstration only.
-- Recommendation logic is fully client-side.
+
+- Authentication is for demonstration purposes.
+
+- Recommendation logic runs entirely inside the browser.
+
+</details>
 
 ---
 
 # 🤝 Contributing
 
-Contributions are welcome.
+Contributions are welcome!
 
-Fork the repository
+1. Fork the repository
 
-Create a new branch
+2. Create a new branch
 
-Submit a Pull Request
+3. Commit your changes
+
+4. Push your branch
+
+5. Open a Pull Request
 
 ---
 
@@ -319,14 +369,11 @@ Submit a Pull Request
 
 Released under the **MIT License**.
 
-See **LICENSE** for details.
-
 ---
 
-<p align="center">
+<div align="center">
 
-⭐ If you enjoyed this project, consider giving it a star!
+## ⭐ Star this repository if you enjoyed the project!
 
 
-
-</p>
+</div>
