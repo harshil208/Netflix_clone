@@ -1,0 +1,82 @@
+/* Accessible: disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* 1) HERO: subtle slide+fade on load */
+.hero-entrance {
+  opacity: 0;
+  transform: translateY(18px) scale(0.995);
+  animation: heroIn 900ms cubic-bezier(.22,.9,.15,1) forwards;
+}
+@keyframes heroIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 2) CARD: lift+scale on hover/focus */
+.card {
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
+  will-change: transform;
+  transform-origin: center;
+}
+.card:hover,
+.card:focus-within {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 18px 30px rgba(11,22,40,0.26);
+  z-index: 3;
+}
+
+/* 3) SHIMMER: image placeholder shimmer while loading */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 100%);
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%;
+  width: 150%; height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  transform: skewX(-12deg);
+  animation: shimmerMove 1.2s linear infinite;
+}
+@keyframes shimmerMove { to { left: 150%; } }
+/* When image is loaded, remove shimmer class (via JS) or add .loaded to element */
+.shimmer.loaded::after { display: none; }
+
+/* 4) VIBE CHIP: quick pulse on activate */
+.vibe-chip {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.vibe-chip.active {
+  animation: chipPulse 420ms cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+@keyframes chipPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* 5) MODAL: scale + fade entrance */
+.modal-backdrop, .modal-overlay {
+  opacity: 0;
+  animation: overlayFade 240ms ease forwards;
+}
+@keyframes overlayFade { to { opacity: 1; } }
+.modal, .modal-content {
+  transform: translateY(8px) scale(0.995);
+  opacity: 0;
+  animation: modalIn 300ms cubic-bezier(.22,.9,.15,1) 80ms forwards;
+}
+@keyframes modalIn { to { transform: translateY(0) scale(1); opacity: 1; } }
+
+/* 6) SMALL UTILS */
+.fade-in {
+  opacity: 0;
+  animation: fadeInShort 380ms ease forwards;
+}
+@keyframes fadeInShort { to { opacity: 1; } }
