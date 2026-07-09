@@ -1,0 +1,23 @@
+/* ============================================================
+   StreamFlix  ·  css/responsive.css
+   Centralised breakpoints and reduced-motion overrides. Load LAST.
+   ============================================================ */
+
+@media(max-width:600px){
+  .l-form{flex-direction:column}
+  .l-cta{justify-content:center}
+  .collage{grid-template-columns:repeat(auto-fill,minmax(108px,1fr))}
+  .auth-card{padding:34px 26px 28px}
+@media(max-width:640px){.modal-cols{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .nav-links{display:none}
+  .card{width:170px}
+  .card.ranked{width:210px}
+  .rank-num{font-size:100px}
+  .hero{height:70vh}
+  .pl-ep-title{display:none}
+  .vol-wrap #vol{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
