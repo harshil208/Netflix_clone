@@ -1,0 +1,15 @@
+/* ============================================================
+   StreamFlix  ·  css/variables.css
+   Design tokens: colours, radii and shared CSS custom properties.
+   ============================================================ */
+
+:root{
+  --bg:#0b0b0f;
+  --bg-raised:#141419;
+  --red:#e50914;
+  --red-dark:#b0060f;
+  --text:#f5f5f4;
+  --text-dim:#a3a3a3;
+  --green:#46d369;
+  --card-r:6px;
+}
