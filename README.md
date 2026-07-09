@@ -1,43 +1,186 @@
-# StreamFlix
 <p align="center">
-  <img src="assets/banner.png" width="100%">
+  <img src="assets/banner.png" alt="StreamFlix Banner" width="100%">
 </p>
 
 <h1 align="center">🎬 StreamFlix</h1>
 
-<h3 align="center">
-AI-Powered Streaming Platform with Vibe Match
-</h3>
+<p align="center">
+  <strong>AI-Powered Netflix-Inspired Streaming Platform</strong><br>
+  Discover content using <b>Vibe Match</b>, enjoy multi-profile support, authentication,
+  personalized recommendations, and a custom streaming player.
+</p>
 
-A Netflix-style streaming interface built with **vanilla HTML, CSS and JavaScript** — no framework, no build step. Multiple profiles, a browsable catalog, a working detail modal, and a simulated fullscreen player that streams real Creative-Commons clips (with a canvas fallback when offline).
-
-Its headline feature is **Vibe Match**: pick a mood and how much time you have, and the catalog re-scores itself instantly — entirely in the browser, with nothing sent anywhere.
+<p align="center">
+  <a href="https://your-vercel-app.vercel.app">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit-red?style=for-the-badge">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge">
+  </a>
+  <img src="https://img.shields.io/badge/HTML5-orange?style=for-the-badge&logo=html5">
+  <img src="https://img.shields.io/badge/CSS3-blue?style=for-the-badge&logo=css3">
+  <img src="https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript">
+  <img src="https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel">
+</p>
 
 ---
 
-## Features
+# ✨ Overview
 
-- **Profiles & a Kids gate** — four profiles, each with its own My List, ratings and watch progress. The Kids profile only ever sees titles rated TV-PG / PG-13 and below.
-- **Vibe Match (the USP)** — mood + time-per-sitting chips that filter and rank titles on the fly. Runs 100% client-side, so no viewing signals leave the device.
-- **Browse** — a rotating hero billboard, horizontal rows (Trending, ranked Top 10, genre rows), and live search across titles, tags and cast.
-- **Detail modal** — synopsis, cast, similar titles, and a season/episode picker for series.
-- **Simulated player** — play/pause, scrub, skip ±10s, speed control, captions, "Skip Intro", and autoplay-next-episode. Plays real CC sample videos; falls back to an animated canvas if the network is blocked.
-- **Continue Watching & My List** — resume rows driven by per-profile progress, plus add/remove and thumbs up/down.
-- **Auth** — sign-up / sign-in with session persistence.
-- **Responsive & accessible-ish** — adapts down to mobile widths and respects `prefers-reduced-motion`.
+**StreamFlix** is a Netflix-inspired streaming platform built entirely using **HTML, CSS, and Vanilla JavaScript**.
 
-## Tech stack
+Unlike a traditional streaming clone, StreamFlix introduces **Vibe Match**, an AI-inspired recommendation experience that instantly re-ranks the catalog according to the user's **current mood** and **available viewing time**, while keeping all recommendation logic inside the browser.
 
-Plain HTML5, modern CSS (custom properties, grid, `clamp()`), and framework-free ES2020+ JavaScript. State lives in memory per session; auth persists via `localStorage` with an in-memory fallback. Fonts from Google Fonts, artwork seeded from picsum.photos, sample video from the Blender open-movie project.
+No frameworks.
+No backend.
+No build tools.
 
-## Project structure
+Everything runs directly in the browser.
 
-```
+---
+
+# 🚀 Live Demo
+
+> 🌐 https://your-vercel-app.vercel.app
+
+---
+
+# 📸 Preview
+
+## Home
+
+<p align="center">
+<img src="assets/home.png" width="90%">
+</p>
+
+## Vibe Match
+
+<p align="center">
+<img src="assets/vibe-match.png" width="90%">
+</p>
+
+## Player
+
+<p align="center">
+<img src="assets/player.png" width="90%">
+</p>
+
+---
+
+# ⭐ Features
+
+### 🎯 AI Vibe Match
+
+- Mood-based recommendations
+- Time-aware suggestions
+- Client-side recommendation engine
+- Zero tracking
+
+---
+
+### 👤 Multi Profile Support
+
+- Multiple users
+- Kids profile
+- Individual watch history
+- Separate My List
+
+---
+
+### 🎥 Streaming Player
+
+- Play / Pause
+- Skip Intro
+- Playback Speed
+- Captions
+- Continue Watching
+- Resume Playback
+- Fullscreen Mode
+
+---
+
+### 🔍 Search
+
+- Instant filtering
+- Search by title
+- Search by cast
+- Search by genre
+
+---
+
+### ❤️ Personalization
+
+- My List
+- Like / Dislike
+- Continue Watching
+- Personalized recommendations
+
+---
+
+### 🔐 Authentication
+
+- Sign Up
+- Login
+- Session persistence
+- Local Storage support
+
+---
+
+# 💡 What Makes StreamFlix Different?
+
+Unlike most Netflix clones, StreamFlix introduces a unique recommendation experience.
+
+### 🔥 Vibe Match
+
+Instead of recommending titles based only on watch history,
+
+StreamFlix asks:
+
+> **"How do you feel today?"**
+
+Choose
+
+- ☕ Cozy
+- 😂 Funny
+- ⚡ Action
+- 💛 Heartfelt
+- 🧠 Mind-bending
+
+Then choose
+
+- Under 45 min
+- 1–2 hours
+- Binge Mode
+
+The application instantly re-ranks every title **inside your browser** without sending any viewing data anywhere.
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Usage |
+|------------|-------|
+| HTML5 | Structure |
+| CSS3 | Styling |
+| JavaScript (ES6+) | Application Logic |
+| Local Storage | Authentication & Session |
+| Google Fonts | Typography |
+| Picsum Photos | Artwork |
+| Blender Open Movies | Demo Videos |
+| Vercel | Deployment |
+
+---
+
+# 📂 Project Structure
+
+```text
 streamflix/
-├── index.html            # markup + all <link>/<script> wiring
+│
+├── index.html
+│
 ├── css/
-│   ├── variables.css     # design tokens (load first)
-│   ├── reset.css         # base reset + toast component
+│   ├── variables.css
+│   ├── reset.css
 │   ├── navbar.css
 │   ├── hero.css
 │   ├── cards.css
@@ -46,49 +189,144 @@ streamflix/
 │   ├── player.css
 │   ├── vibe.css
 │   ├── footer.css
-│   └── responsive.css    # breakpoints + reduced-motion (load last)
+│   └── responsive.css
+│
 ├── js/
-│   ├── utils.js          # $ helper, toasts, formatting  (loads first)
-│   ├── data.js           # catalog, artwork, video sources
-│   ├── storage.js        # localStorage persistence
-│   ├── profile.js        # profile state + profile gate
-│   ├── notifications.js
-│   ├── cards.js          # rendering, rows, view switching
-│   ├── continueWatching.js
-│   ├── myList.js
+│   ├── utils.js
+│   ├── storage.js
+│   ├── profile.js
+│   ├── data.js
+│   ├── cards.js
 │   ├── modal.js
-│   ├── recommendations.js# Vibe Match engine
-│   ├── search.js
-│   ├── navbar.js
-│   ├── player.js         # simulated streaming player
+│   ├── player.js
 │   ├── auth.js
-│   └── app.js            # hero rotation + boot  (loads last)
+│   ├── recommendations.js
+│   ├── notifications.js
+│   ├── search.js
+│   ├── continueWatching.js
+│   ├── navbar.js
+│   ├── myList.js
+│   └── app.js
+│
 ├── README.md
-├── .gitignore
-└── LICENSE
+├── LICENSE
+└── .gitignore
 ```
 
-> Scripts are ordered by dependency in `index.html`: `utils.js` (which defines the `$` helper) loads first and `app.js` (which boots the app) loads last. Keep that order if you add or move files.
+---
 
-## Getting started
+# ⚙️ Getting Started
 
-No build tooling required. Because the browser blocks `fetch`/module behaviour on `file://`, serve the folder rather than double-clicking the HTML:
+Clone the repository
 
 ```bash
-# any static server works — pick one
+git clone https://github.com/harshil208/Netflix_clone.git
+```
+
+Go inside
+
+```bash
+cd Netflix_clone
+```
+
+Run a local server
+
+```bash
 python3 -m http.server 8000
-#   or
+```
+
+or
+
+```bash
 npx serve .
 ```
 
-Then open `http://localhost:8000`.
+Open
 
-## Notes & disclaimers
+```
+http://localhost:8000
+```
 
-- **Playback is simulated.** The player uses public Creative-Commons clips for demonstration; the app is a UI showcase, not a real streaming service.
-- **The catalog is fictional.** All titles, descriptions and artwork are placeholders.
-- **Auth is not secure.** Credentials sit in `localStorage` behind a trivial non-cryptographic hash — fine for a demo, never for anything real.
+---
 
-## License
+# 🏗 Architecture
 
-Released under the MIT License — see [LICENSE](LICENSE).
+```text
+User
+ │
+ ▼
+Authentication
+ │
+ ▼
+Profile Selection
+ │
+ ▼
+Home
+ │
+ ├──────────────┐
+ ▼              ▼
+Search      Vibe Match
+ │              │
+ ▼              ▼
+Catalog    Recommendation Engine
+ │
+ ▼
+Player
+ │
+ ▼
+Continue Watching
+```
+
+---
+
+# 📈 Future Improvements
+
+- AI-powered natural language search
+- Watch Party
+- Voice Search
+- Smart Subtitle Translation
+- Offline Downloads
+- Dark/Light Themes
+- Movie Reviews
+- Trending Analytics
+- Backend Integration
+- Firebase Authentication
+
+---
+
+# 📜 Notes
+
+- Playback uses Creative Commons demo videos.
+- Artwork is placeholder content.
+- Authentication is for demonstration only.
+- Recommendation logic is fully client-side.
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+Fork the repository
+
+Create a new branch
+
+Submit a Pull Request
+
+---
+
+# 📄 License
+
+Released under the **MIT License**.
+
+See **LICENSE** for details.
+
+---
+
+<p align="center">
+
+⭐ If you enjoyed this project, consider giving it a star!
+
+
+
+</p>
