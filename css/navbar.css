@@ -67,6 +67,16 @@ nav.scrolled{background:var(--bg);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .account-actions .btn{padding:10px 14px;border-radius:6px;border:none;font-weight:600;cursor:pointer}
 .account-actions .btn.primary{background:var(--red);color:#fff}
 .account-actions .btn.secondary{background:rgba(255,255,255,.08);color:var(--text)}
+.watch-party-grid{display:grid;gap:12px;margin-top:14px}
+.watch-party-box{padding:14px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(255,255,255,.03)}
+.watch-party-box input{width:100%;margin-top:8px;padding:10px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.35);color:var(--text)}
+.watch-party-pill{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:999px;background:rgba(0,255,140,.14);color:#98f6b7;font-size:12px;font-weight:600}
+.watch-party-friends{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.watch-party-friend{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.06);font-size:12px}
+.watch-party-friend .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.watch-party-friend .name{font-weight:600}
+.watch-party-inline{position:absolute;left:20px;bottom:88px;display:flex;flex-wrap:wrap;gap:8px;z-index:20;pointer-events:none}
+.watch-party-inline .watch-party-friend{background:rgba(0,0,0,.55);backdrop-filter:blur(8px)}
 .help-list{display:grid;gap:10px;margin:14px 0 8px}
 .help-item{padding:12px 14px;border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(255,255,255,.03)}
 .help-item strong{display:block;margin-bottom:4px}

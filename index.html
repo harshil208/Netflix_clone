@@ -96,6 +96,7 @@
     <a data-view="new" onclick="setView('new')">New &amp; Popular</a>
     <a onclick="setView('home');document.getElementById('vibe').scrollIntoView()" style="color:var(--red);font-weight:600">Vibe Match ✦</a>
     <a data-view="mylist" onclick="setView('mylist')">My List</a>
+    <a onclick="openWatchPartyModal()" style="color:var(--green);font-weight:600">Watch Party</a>
   </div>
   <div class="nav-right">
     <button class="icon-btn" title="Play something (shuffle)" aria-label="Play something" onclick="playSomething()">🔀</button>
@@ -232,6 +233,13 @@
 
 <div id="toasts"></div>
 
+<div class="simple-modal" id="watchPartyModal" aria-hidden="true">
+  <div class="simple-modal-card" role="dialog" aria-modal="true" aria-labelledby="watchPartyModalTitle">
+    <button class="a-modal-close" onclick="closeWatchPartyModal()" aria-label="Close">✕</button>
+    <div id="watchPartyModalBody"></div>
+  </div>
+</div>
+
 <div class="simple-modal" id="accountModal" aria-hidden="true">
   <div class="simple-modal-card" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle">
     <button class="a-modal-close" onclick="closeAccountModal()" aria-label="Close">✕</button>
@@ -249,6 +257,7 @@
   <script src="js/utils.js"></script>
   <script src="js/data.js"></script>
   <script src="js/storage.js"></script>
+  <script src="js/watchParty.js"></script>
   <script src="js/profile.js"></script>
   <script src="js/notifications.js"></script>
   <script src="js/cards.js"></script>

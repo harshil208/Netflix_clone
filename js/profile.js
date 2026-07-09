@@ -42,6 +42,10 @@ $("avatarBtn").textContent=P().kids?"🧒":P().name[0];
 $("avatarBtn").style.background=P().grad;
 renderProfileMenu();renderNotifs();
 setView("home");initHero();renderVibeControls();renderVibeRow();
+const pendingPlayback = consumePendingWatchPartyPlayback();
+if(pendingPlayback?.targetId != null){
+  startWatchPartyPlayback(pendingPlayback.targetId);
+}
 showToast(`Watching as ${P().name}`);
 scrollTo({top:0});
 }
@@ -96,6 +100,104 @@ function openAccountModal(mode){
 
 $("accountModal").addEventListener("click",e=>{if(e.target===$("accountModal"))closeAccountModal();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("accountModal").classList.contains("open"))closeAccountModal();});
+
+function closeWatchPartyModal(){
+  $("watchPartyModal").classList.remove("open");
+  $("watchPartyModal").setAttribute("aria-hidden","true");
+}
+function openWatchPartyModal(){
+  const modal=$("watchPartyModal");
+  const body=$("watchPartyModalBody");
+  const room=normalizeWatchPartyState(loadWatchPartyState());
+  const currentUserName=currentUser()?.name||"Guest";
+  const inviteLink=getWatchPartyInviteLink(room.code);
+  body.innerHTML=`
+    <h3 class="account-modal-title">Watch Party</h3>
+    <p class="account-modal-sub">Create a room for a shared viewing session or join an existing one with a code.</p>
+    <div class="watch-party-grid">
+      <div class="watch-party-box">
+        <strong>Create room</strong>
+        <p class="account-modal-sub">Host a room for ${currentUserName} and invite friends.</p>
+        <div class="account-actions">
+          <button class="btn primary" onclick="createAndShowWatchParty()">Create room</button>
+        </div>
+      </div>
+      <div class="watch-party-box">
+        <strong>Join room</strong>
+        <input id="watchPartyCodeInput" placeholder="Enter 5-letter code" maxlength="8">
+        <div class="account-actions">
+          <button class="btn secondary" onclick="joinWatchPartyFromInput()">Join room</button>
+        </div>
+      </div>
+    </div>
+    ${room.code?`<div class="watch-party-box">
+      <strong>Current room</strong>
+      <div class="watch-party-pill">Share code: ${room.code}</div>
+      <p class="account-modal-sub">Hosting: ${room.host || 'Guest'} • Participants: ${room.participants.join(", ")}</p>
+      <p class="account-modal-sub">Now watching: ${room.session?.title || room.title || 'Now playing'}</p>
+      <div class="watch-party-friends">
+        ${(room.participants||[]).map(name=>`<div class="watch-party-friend"><span class="dot"></span><span class="name">${name}</span></div>`).join('')}
+      </div>
+      ${inviteLink?`<div class="account-actions"><button class="btn secondary" onclick="copyWatchPartyInvite()">Copy invite link</button></div>`:""}
+    </div>`:""}
+  `;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+}
+function startWatchPartyPlayback(targetId){
+  if(typeof playTitle === 'function' && Number.isInteger(targetId)){
+    setTimeout(()=>playTitle(targetId), 250);
+  }
+}
+function createAndShowWatchParty(){
+  const currentUserName=currentUser()?.name||"Guest";
+  const defaultTitleId = 2;
+  const room=createWatchPartyRoom(currentUserName, catalog[defaultTitleId]?.title || 'Orbit Decay');
+  syncWatchPartySession(room.code, { title: catalog[defaultTitleId]?.title || 'Orbit Decay', titleId: defaultTitleId, startedAt: Date.now() });
+  showToast(`Watch party room created — code ${room.code}`);
+  openWatchPartyModal();
+  if(activeProfile===null){
+    closeWatchPartyModal();
+    queueWatchPartyPlayback(defaultTitleId);
+    $("gate").style.display="flex";
+    showToast("Choose a profile to start the watch party");
+    return;
+  }
+  startWatchPartyPlayback(defaultTitleId);
+}
+function joinWatchPartyFromInput(){
+  const code=$("watchPartyCodeInput").value.trim().toUpperCase();
+  const currentUserName=currentUser()?.name||"Guest";
+  if(!code){showToast("Enter a room code first");return;}
+  const room=joinWatchPartyRoom(code,currentUserName);
+  if(room){
+    const targetId = room.session?.titleId ?? room.titleId ?? 2;
+    showToast(`Joined watch party ${room.code}`);
+    openWatchPartyModal();
+    if(activeProfile===null){
+      closeWatchPartyModal();
+      queueWatchPartyPlayback(targetId);
+      $("gate").style.display="flex";
+      showToast("Choose a profile to start the watch party");
+      return;
+    }
+    startWatchPartyPlayback(targetId);
+  }
+  else{showToast("That room code was not found");}
+}
+function copyWatchPartyInvite(){
+  const room=normalizeWatchPartyState(loadWatchPartyState());
+  const link=getWatchPartyInviteLink(room.code);
+  if(!link){showToast("No room to share yet");return;}
+  if(navigator.clipboard?.writeText){
+    navigator.clipboard.writeText(link).then(()=>showToast("Invite link copied")).catch(()=>showToast("Invite link ready to copy"));
+  } else {
+    showToast("Invite link ready to copy");
+  }
+}
+
+$("watchPartyModal").addEventListener("click",e=>{if(e.target===$("watchPartyModal"))closeWatchPartyModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("watchPartyModal").classList.contains("open"))closeWatchPartyModal();});
 function signOut(){
 stopHeroRotation();closeModal();
 activeProfile=null;

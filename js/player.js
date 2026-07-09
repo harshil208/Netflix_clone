@@ -29,6 +29,7 @@ function startPlayback(id,s,e,t,dur){
 closeModal();stopHeroRotation();
 Object.assign(player,{id,s,e,t,dur,playing:true,mode:"video"});
 const it=catalog[id];
+const room=normalizeWatchPartyState(loadWatchPartyState());
 $("plTopTitle").innerHTML=it.type==="series"
   ?`<b>${it.title}</b> &nbsp;S${s}:E${e} \u201c${it.seasons[s-1][e-1].name}\u201d`
   :`<b>${it.title}</b>`;
@@ -40,6 +41,9 @@ cancelNext();nextDismissed=false;
 renderSpeedMenu();
 startVideo(id,s,e,t);      // tries real video; falls back to simulation
 updatePlayUI();wakeUI();
+if(room.code){
+  $("player").insertAdjacentHTML("beforeend", `<div class="watch-party-inline">${(room.participants||[]).map(name=>`<div class="watch-party-friend"><span class="dot"></span><span class="name">${name}</span></div>`).join('')}</div>`);
+}
 }
 
 /* ---- real video pipeline (CC sample streams), simulation fallback ---- */
