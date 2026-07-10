@@ -50,7 +50,7 @@ No build tools.
 
 # 🚀 Live Demo
 
-> https://your-vercel-app.vercel.app
+> https://netflix-clone-kappa-fawn-69.vercel.app/
 
 ---
 
