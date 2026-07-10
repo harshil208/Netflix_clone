@@ -8,7 +8,7 @@
 
 <br>
 
-<a href="https://your-vercel-app.vercel.app">
+<a href="https://netflix-clone-kappa-fawn-69.vercel.app/">
 <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit-red?style=for-the-badge">
 </a>
 
